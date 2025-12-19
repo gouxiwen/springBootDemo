@@ -1,0 +1,15 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: demo-dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mydb-dev
+    username: root
+    password: secret
+    # hikari:
+    #   maximum-pool-size: 10
+    #   minimum-idle: 5
+    #   idle-timeout: 30000
+    #   max-lifetime: 1800000
