@@ -1,9 +1,10 @@
 package com.example.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import java.time.LocalDateTime;
 
 @Entity
 public class User {
@@ -12,6 +13,7 @@ public class User {
   private Long id;
   private String name;
   private String email;
+  private LocalDateTime createTime;
 
   // 构造函数
   public User() {
@@ -20,6 +22,7 @@ public class User {
   public User(String name, String email) {
     this.name = name;
     this.email = email;
+    this.createTime = LocalDateTime.now();
   }
 
   // getter 和 setter
@@ -45,5 +48,13 @@ public class User {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public LocalDateTime getCreateTime() {
+    return createTime;
+  }
+
+  public void setCreateTime(LocalDateTime createTime) {
+    this.createTime = createTime;
   }
 }

@@ -2,7 +2,6 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * SpringBoot应用主类
@@ -10,7 +9,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * @SpringBootApplication 注解标识这是一个SpringBoot应用
  */
 @SpringBootApplication
-@EnableJpaRepositories(basePackages = "com.example.demo.repository")
 public class DemoApplication {
 
   public static void main(String[] args) {

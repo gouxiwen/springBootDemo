@@ -14,7 +14,7 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Long> {
 
   // 根据用户名查找用户
-  Optional<User> findByUsername(String username);
+  Optional<User> findByName(String name);
 
   // 根据邮箱查找用户
   Optional<User> findByEmail(String email);
@@ -24,7 +24,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
   List<User> findUsersAfterCreateTime(@Param("createTime") LocalDateTime createTime);
 
   // 检查用户名是否存在
-  boolean existsByUsername(String username);
+  boolean existsByName(String name);
 
   // 检查邮箱是否存在
   boolean existsByEmail(String email);
