@@ -19,11 +19,11 @@ spring:
     active: dev
 
 server:
-  port: 8080
+  port: 9090
   servlet:
-    context-path: /demo
-# logging:
-#   level:
-#     com.example.demo: DEBUG
-#   file:
-#     name: logs/demo.log
+    context-path: /test
+logging:
+  level:
+    com.example.demo: DEBUG
+  file:
+    name: logs/demo.log

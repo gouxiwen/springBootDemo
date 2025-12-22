@@ -28,11 +28,6 @@ public class UserController {
     return userService.findAllUsers();
   }
 
-  // @GetMapping
-  // public String getAllUsers() {
-  // return "Hello, SpringBoot!";
-  // }
-
   @GetMapping("/{id}")
   public ResponseEntity<User> getUserById(@PathVariable Long id) {
     Optional<User> user = userService.findUserById(id);
