@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,12 +8,20 @@ import jakarta.persistence.Id;
 import java.time.LocalDateTime;
 
 @Entity
+@Schema(description = "用户实体类")
 public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Schema(description = "用户ID", example = "1")
   private Long id;
+
+  @Schema(description = "用户名", example = "张三")
   private String name;
+
+  @Schema(description = "用户邮箱", example = "zhangsan@example.com")
   private String email;
+
+  @Schema(description = "创建时间")
   private LocalDateTime createTime;
 
   // 构造函数
