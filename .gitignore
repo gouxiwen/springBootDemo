@@ -33,3 +33,5 @@ build/
 .vscode/
 
 logs/
+
+mysql_data/
