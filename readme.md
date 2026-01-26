@@ -50,20 +50,31 @@ extension pack for java，由六个包组成
 
 主要配置下载镜像地址和存储位置
 
-1. 全局安装配置在安装目录的 conf/setting.xml 中
+存储位置默认在 ${user.home}/.m2/repository，可以通过修改 maven 的 settings.xml 文件来更改存储位置。
 
-2. vscode 插件（extension pack for java，包含六个包）其中两个包需要配置 maven
-   language support for java 在 java.configuration.maven.globalSettings 中配置
-   maven for java 在 maven.settingsFile 中配置
+默认情况下，所有 Maven 会自动按以下顺序查找 settings.xml：
+
+1. 全局命令 mvn，配置在 maven 的 conf/settings.xml 中
+
+${maven.home}/conf/settings.xml（全局配置）
+
+2. vscode 插件（extension pack for java，包含六个包）其中两个包需要配置 maven：
+
+- language support for java 在 java.configuration.maven.globalSettings 中指定 setting.xml 位置
+
+- maven for java 在 maven.settingsFile 指定 setting.xml 位置
+
+3. Maven Wrapper，mvnw
+
+只能在${user.home}/.m2/settings.xml（用户级别配置）进行配置
 
 ### 构建项目
 
-mvn 可以是全局安装的也可以是是项目内安装的，一般 spring boot 项目内会附带 mvn。
-
-存储位置配置
+mvn 是全局安装的，项目中使用 mnvw。
+mvnw 即是 maven wrapper 的缩写，它是一个脚本，用于在项目目录中提供一个可执行的 maven 版本，安装方式 mvn wrapper:wrapper。
 
 ```bash
-# 使用 Maven 构建
+# 使用 全局Maven 构建
 mvn clean package
 
 # 或使用 Maven 包装脚本（Windows）cmd
@@ -81,7 +92,7 @@ Maven 的 package 和 install 命令核心区别在于：‌package 仅负责将
 ### 运行应用
 
 ```bash
-# 使用 Maven 启动
+# 使用 全局 Maven 启动
 mvn spring-boot:run
 
 # 或使用 Maven 包装脚本（Windows）cmd
